@@ -1,7 +1,7 @@
 import { Suspense, lazy, ElementType } from 'react';
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 // layouts
-import DashboardLayout from '../layouts';
+import DashboardLayout from 'src/layouts';
 // components
 import LoadingScreen from '../components/LoadingScreen';
 
@@ -22,7 +22,11 @@ export default function Router() {
   return useRoutes([
     {
       path: '/',
-      element: <Home />,
+      element: <DashboardLayout />,
+      children: [
+        { element: <Navigate to="/welcome" replace />, index: true },
+        { path: 'welcome', element: <Welcome /> },
+      ],
     },
     {
       path: '*',
@@ -36,6 +40,6 @@ export default function Router() {
 }
 
 //Auth
-const Home = Loadable(lazy(() => import('src/pages/Welcome')));
+const Welcome = Loadable(lazy(() => import('src/pages/Welcome')));
 
 const NotFound = Loadable(lazy(() => import('src/pages/Page404')));

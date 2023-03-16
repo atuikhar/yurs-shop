@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 // @mui
 import { Box } from '@mui/material';
 
+import Header from 'src/layouts/header';
+
 // ----------------------------------------------------------------------
 
 export default function DashboardLayout() {
@@ -12,8 +14,8 @@ export default function DashboardLayout() {
         minHeight: { lg: 1 },
       }}
     >
+      <Header />
       <div>
-        {' '}
         <Outlet />
       </div>
     </Box>
