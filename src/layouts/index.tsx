@@ -15,9 +15,9 @@ export default function DashboardLayout() {
       }}
     >
       <Header />
-      <div>
+      <Box>
         <Outlet />
-      </div>
+      </Box>
     </Box>
   );
 }
