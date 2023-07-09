@@ -8,7 +8,7 @@ export default function Header() {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box display="flex" alignItems="center">
           <img height={50} width={50} src={String(Logo)} alt="logo" />
-          <Typography ml={2} align="center" variant="h1" color="grey.900">
+          <Typography ml={2} align="center" variant="h1" color="grey.700">
             Yurs-shop
           </Typography>
         </Box>

@@ -12,7 +12,7 @@ const Loadable = (Component: ElementType) => (props: any) => {
   const { pathname } = useLocation();
 
   return (
-    <Suspense fallback={<LoadingScreen isDashboard={pathname.includes('/dashboard')} />}>
+    <Suspense fallback={<LoadingScreen isDashboard={true} />}>
       <Component {...props} />
     </Suspense>
   );
@@ -26,6 +26,7 @@ export default function Router() {
       children: [
         { element: <Navigate to="/welcome" replace />, index: true },
         { path: 'welcome', element: <Welcome /> },
+        { path: 'shop', element: <Shop /> },
       ],
     },
     {
@@ -41,5 +42,6 @@ export default function Router() {
 
 //Auth
 const Welcome = Loadable(lazy(() => import('src/pages/Welcome')));
+const Shop = Loadable(lazy(() => import('src/pages/Shop')));
 
 const NotFound = Loadable(lazy(() => import('src/pages/Page404')));
